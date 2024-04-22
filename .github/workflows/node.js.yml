@@ -1,0 +1,28 @@
+name: CI
+
+on:
+# События, котореы запускают 
+push:
+  branches: [ "main" ]
+  pull_request:
+  branches: ["main"]
+  
+  
+  jobs:
+  my_build_job:
+  runs-on: ubnutu-latest
+  steps:
+  - uses:actions/chekout@v3
+
+  - name: при install, test and build 
+    run: |
+      npm install
+      npm run build
+      
+  - name: Run a one-line script
+  run: |
+  echo Add other action to build,
+  echo test, and deloy your project.
+
+  - name: Run JS file for test 
+    run: node js/script.js
